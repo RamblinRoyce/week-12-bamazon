@@ -1,0 +1,16 @@
+{
+	"name": "Week-12-Bamazon-Node-SQL",
+	"version": "1.0.0",
+	"description": "UT Coding Bootcamp Homework Week 12 - Bamazon - Node.js & MySQL",
+	"main": "bamazon.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Royce Ching",
+	"license": "ISC",
+	"dependencies": {
+		"inquirer": "^1.1.2",
+		"mysql": "^2.11.1"
+	}
+}
+
