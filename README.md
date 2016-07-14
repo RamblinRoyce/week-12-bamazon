@@ -1,101 +1,118 @@
 # week-12-bamazon
 UT Coding Bootcamp Homework Week 12 - Bamazon - Node.js &amp; MySQL
 
-Week of 12 HW: Node.js & MySQL
-Objectives
+#Week of 12 HW: Node.js & MySQL
 
-In this activity you will be creating an Amazon-like storefront using MySQL, the MySQL NPM Package, and the Prompt Package.
+### Objectives
 
-The application will take in orders from customers and deplete from the store's total supplies.
+* In this activity you will be creating an Amazon-like storefront using MySQL, the MySQL NPM Package, and the Prompt Package.
 
-As a bonus: The application will additionally track these product sales across departments and provide a summary of the highest-grossing departments in the store.
+* The application will take in orders from customers and deplete from the store's total supplies. 
 
-Submission Requirements:
+* As a bonus: The application will additionally track these product sales across departments and provide a summary of the highest-grossing departments in the store.
 
-When submitting this homework, use the normal GitHub and Heroku process.
+### Submission Requirements:
 
-However, be sure to include screenshots and/or video of the working code in your README.md file of the GitHub Repo. (Research how to use README.md files if you are confused).
+* When submitting this homework, use the normal GitHub and Heroku process. 
 
-Challenge #1: Customer View (Minimum Requirement)
+* However, be sure to include screenshots and/or video of the working code in your README.md file of the GitHub Repo. (Research how to use README.md files if you are confused). 
 
-Create a MySQL Database called Bamazon.
+### Challenge #1: Customer View (Minimum Requirement)
 
-Then create a Table inside of that database called Products.
+* Create a MySQL Database called `Bamazon`.
 
-The products table should have each of the following columns:
+* Then create a Table inside of that database called `Products`.
 
-ItemID (unique id for each product)
+* The products table should have each of the following columns:
 
-ProductName (Name of product)
+	* ItemID (unique id for each product)
 
-DepartmentName
+	* ProductName (Name of product)
 
-Price (cost to customer)
+	* DepartmentName 
 
-StockQuantity (how much of the product is available in stores)
+	* Price (cost to customer)
 
-Populate this database with approximately 10 different products. (i.e. Insert "mock" data rows into this database and table).
+	* StockQuantity (how much of the product is available in stores)
 
-Then create a Node application called BamazonCustomer.js. Running this application will:
+* Populate this database with approximately 10 different products. (i.e. Insert "mock" data rows into this database and table).
 
-First Display All of the Items available for sale. This initial display, should include the ids, names, and prices of products for sale
+* Then create a Node application called `BamazonCustomer.js`. Running this application will:
 
-Users should then be prompted with two messages. The first message should ask them the ID of the product they would like to buy. The second message should ask them how many of the product they would like to buy.
+	* First Display All of the Items available for sale. This initial display, should include the ids, names, and prices of products for sale
 
-Once the customer has placed the order: Your application should...
+	* Users should then be prompted with two messages. The first message should ask them the ID of the product they would like to buy. The second message should ask them how many of the product they would like to buy.
 
-Check if your store has enough quantity of the product to meet the customer's request. If not, you should respond to the user by saying: "Insufficient quantity" and prevent the order from going through.
+	* Once the customer has placed the order: Your application should...
 
-If your store DOES have enough of the product to meet the customer's request, you should fulfill their order. This means that you should show them the total cost of their puchase. Then update the SQL database to reflect the remaining quantity.
+		* Check if your store has enough quantity of the product to meet the customer's request. If not, you should respond to the user by saying: "Insufficient quantity" and prevent the order from going through.
 
-If this activity took you between 8-10 hours, then stop right here... Otherwise continue to the next set of challenges
-Challenge #2: Manager View (Next Level)
+		* If your store DOES have enough of the product to meet the customer's request, you should fulfill their order. This means that you should show them the total cost of their puchase. Then update the SQL database to reflect the remaining quantity.
 
-Create a new Node application called BamazonManager.js. Running this application will:
+---------------------------------
 
-List a set of menu options: 1) View Products for Sale 2) View Low Inventory 3) Add to Inventory 4) Add New Product
+* If this activity took you between 8-10 hours, then stop right here... Otherwise continue to the next set of challenges
 
-If a manager selectis option 1 it should list all of the products available for sale: the item IDs, names, prices, and quantities.
+------------------------------------
 
-If a manager selects option 2 it should list all items for which the quantity available in stores is less than 5.
+### Challenge #2: Manager View (Next Level)
 
-If a manager selects option 3 it should provide the manager with the ability to "add more" of any item currently in the store.
+* Create a new Node application called `BamazonManager.js`. Running this application will:
 
-If a manager selects option 4 it should provide the manager with the ability to add a completely new product to the store.
+	* List a set of menu options: 1) View Products for Sale 2) View Low Inventory 3) Add to Inventory 4) Add New Product
 
-If you've completed Challenge #2 and and have put in the hours you are willing to give this activity, then stop right here... Otherwise continue to the next and final challenge
-Challenge #3: Executive View (Final Level)
+	* If a manager selectis option 1 it should list all of the products available for sale: the item IDs, names, prices, and quantities.
 
-Create a new MySQL table called Departments. This MySQL table should have the following columns:
+	* If a manager selects option 2 it should list all items for which the quantity available in stores is less than 5. 
 
-DepartmentID
+	* If a manager selects option 3 it should provide the manager with the ability to "add more" of any item currently in the store. 
 
-DepartmentName
+	* If a manager selects option 4 it should provide the manager with the ability to add a completely new product to the store.
 
-OverHeadCosts (A dummy number you set for each department)
 
-TotalSales
+---------------------------------
 
-Modify the BamazonCustomer.js application such that customer transactions update not just the Products inventory but also calculates the total sales from each transaction (quantity * price). Add the revenue from each transaction to the TotalSales for the related department.
+* If you've completed Challenge #2 and and have put in the hours you are willing to give this activity, then stop right here... Otherwise continue to the next and final challenge
 
-Create a new Node application called BamazonExecutive.js. Running this application will:
+------------------------------------
 
-List a set of menu options: 1) View Product Sales by Department, 2) Create New Department
+### Challenge #3: Executive View (Final Level)
 
-When an executive enters the View Product Sales option, they should given a summarized table which shows a format like the below:
+* Create a new MySQL table called `Departments`. This MySQL table should have the following columns:
 
-DepartmentID	DepartmentName	OverHeadCosts	ProductSales	TotalProfit
-01	Electronics	10000	20000	10000
-02	Clothing	60000	100000	40000
-The TotalProfit should be calculated on the fly using the difference between OverheadCosts and ProductSales. TotalProfit should not be stored in any database. You should use a custom alias.
+	* DepartmentID
 
-If this does not work, then feel free to go back and just add TotalProfit to the Departments table.
+	* DepartmentName
 
-Hint: You will need to use joins to make this work.
+	* OverHeadCosts (A dummy number you set for each department)
 
-Hint: You may need to look into grouping in MySQL.
+	* TotalSales
+
+* Modify the `BamazonCustomer.js` application such that customer transactions update not just the `Products` inventory but also calculates the total sales from each transaction (`quantity` * `price`). Add the revenue from each transaction to the TotalSales for the related department.
+
+* Create a new Node application called `BamazonExecutive.js`. Running this application will:
+
+	* List a set of menu options: 1) View Product Sales by Department, 2) Create New Department
+
+	* When an executive enters the View Product Sales option, they should given a summarized table which shows a format like the below:
+
+	| DepartmentID | DepartmentName | OverHeadCosts | ProductSales | TotalProfit |
+	|--------------|----------------|---------------|--------------|-------------|
+	| 01           | Electronics    | 10000         | 20000        | 10000       |
+	| 02           | Clothing       | 60000         | 100000       | 40000       |
+
+
+	* The `TotalProfit` should be calculated on the fly using the difference between `OverheadCosts` and `ProductSales`. `TotalProfit` should not be stored in any database. You should use a custom alias. 
+
+	* If this does not work, then feel free to go back and just add `TotalProfit` to the `Departments` table.
+
+	* Hint: You will need to use joins to make this work. 
+
+	* Hint: You may need to look into grouping in MySQL.
+
+----------------------
 
 Good luck!
 
-Copyright
+# Copyright
 Coding Boot Camp (C) 2016. All Rights Reserved.
